@@ -6,8 +6,9 @@ module.exports = {
         const {email, password} = req.body
 
         const login = await connection.users.findOne({where: {email: email}});
-
+       console.log(login)
         bcrypt.compare(password, login.password, (err, sucess) => {
+            
             if(sucess){
                 res.statusCode = 200
                 res.send({
