@@ -1,10 +1,26 @@
+const { use } = require('express/lib/application');
+const { user } = require('pg/lib/defaults');
 const { Sequelize } = require('sequelize');
 
-//database', 'username', 'password'
-const sequelize = new Sequelize('teste', 'postgres', '123456', {
-    host: 'localhost',
-    dialect: 'postgres'
-});
+const database = 'dfk9vgcuhkubg0'
+const username = 'wjapwxvdtkgaun'
+const password = 'a04edfebc1ee1e76065677a71591bedd5578e07a8dd01c1d371aa9fe68294f5c'
+const host = 'ec2-54-83-157-174.compute-1.amazonaws.com'
+
+const sequelize = new Sequelize(
+    database, username, password, 
+    {
+        host: host,
+        port: 5432,
+        dialect: 'postgres',
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+         },
+    },
+);
 
 const db = {}; 
 
@@ -24,14 +40,14 @@ db.vacina.belongsTo(db.pets);
 db.medicamentos.belongsTo(db.pets);
 
 
-sequelize.sync({
- alter: true
-})
+// sequelize.sync({
+//  alter: true
+// })
 
 db.sequelize.authenticate().then(() => {
-    console.log("Banco conectado com sucesso :)");
+    console.log("👨‍💻 Banco conectado com sucesso :)");
 }).catch((erro) => {
-    console.log("Oops, algo deu errado na conexão com o banco :(" + erro);
+    console.log("👺 Oops, algo deu errado na conexão com o banco :(", erro);
 });
 
 module.exports = db;
