@@ -6,6 +6,8 @@ const AuthController = require("./controllers/AuthController");
 const PetsController = require("./controllers/PetsController");
 const VacinaController = require("./controllers/VacinaController");
 const MedicamentosController = require("./controllers/MedicamentosController");
+const multer = require("multer");
+const multerConfig = require("./config/multerConfig");
 
 //user
 router.post("/users.create", UsersController.createUser);
@@ -14,7 +16,12 @@ router.post("/login", AuthController.login);
 //pet
 router.get("/pets.list/:id", PetsController.listUserPet);
 router.get("/pet.list/:id", PetsController.listPet);
-router.post("/pets.create", PetsController.createPet);
+router.post(
+  "/pets.create",
+  multer(multerConfig).single("file"),
+  PetsController.createPet
+);
+router.post("/pet.delete/:id", PetsController.deletePet);
 
 //vacina
 router.post("/vacina.create/:id", VacinaController.createVacina);

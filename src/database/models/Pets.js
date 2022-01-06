@@ -28,22 +28,12 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        dataani: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        anidotado: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-       
-        temperamento: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         castrado: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        img: {
+            type: DataTypes.STRING
         },
     }, {
         underscored: true,
