@@ -1,1 +1,1 @@
-web: npm eun serve
+web: npm run serve
