@@ -13,13 +13,20 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      data1: {
+      dose: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
-      data2: {
+      totaldoses: {
         type: DataTypes.STRING,
-        allowNull: false,
+      },
+      doseinicial: {
+        type: DataTypes.STRING,
+      },
+      data: {
+        type: DataTypes.STRING,
+      },
+      intervalo: {
+        type: DataTypes.INTEGER,
       },
       descricao: {
         type: DataTypes.TEXT,
