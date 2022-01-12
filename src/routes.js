@@ -26,6 +26,7 @@ router.post("/pet.delete/:id", PetsController.deletePet);
 //vacina
 router.post("/vacina.create/:id", VacinaController.createVacina);
 router.get("/vacina.list/:id", VacinaController.listPetVacina);
+router.post("/addDose/:id", VacinaController.addNewDose);
 
 router.post(
   "/medicamentos.create/:id",

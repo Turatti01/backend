@@ -30,11 +30,14 @@ db.posts = require("./models/Posts")(sequelize, Sequelize);
 db.pets = require("./models/Pets")(sequelize, Sequelize);
 db.vacina = require("./models/Vacina")(sequelize, Sequelize);
 db.medicamentos = require("./models/Medicamentos")(sequelize, Sequelize);
+
 db.users.hasMany(db.posts);
 db.users.hasMany(db.pets);
 db.pets.hasMany(db.vacina);
 db.pets.hasMany(db.medicamentos);
+
 db.vacina.belongsTo(db.pets);
+db.medicamentos.belongsTo(db.pets);
 db.medicamentos.belongsTo(db.pets);
 
 // sequelize.sync({
