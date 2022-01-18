@@ -32,4 +32,19 @@ module.exports = {
       console.log(error);
     }
   },
+  async deleteMedicamento(req, res) {
+    const id = req.params.id;
+    try {
+      await connection.medicamentos.destroy({
+        where: {
+          id: id,
+        },
+      });
+      res.json(id);
+      res.status(200);
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+    }
+  },
 };

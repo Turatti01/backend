@@ -52,4 +52,19 @@ module.exports = {
       console.log(error);
     }
   },
+  async deleteVacina(req, res) {
+    try {
+      const id = req.params.id;
+      await connection.vacina.destroy({
+        where: {
+          id: id,
+        },
+      });
+      res.status(200);
+      res.json(id);
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+    }
+  },
 };

@@ -27,6 +27,7 @@ router.post("/pet.delete/:id", PetsController.deletePet);
 router.post("/vacina.create/:id", VacinaController.createVacina);
 router.get("/vacina.list/:id", VacinaController.listPetVacina);
 router.post("/addDose/:id", VacinaController.addNewDose);
+router.post("/deleteVacina/:id", VacinaController.deleteVacina);
 
 router.post(
   "/medicamentos.create/:id",
@@ -36,5 +37,6 @@ router.get(
   "/medicamentos.list/:id",
   MedicamentosController.listPetMedicamentos
 );
+router.post("/deleteMedicamento/:id", MedicamentosController.deleteMedicamento);
 
 module.exports = router;
